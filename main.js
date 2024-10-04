@@ -48,37 +48,35 @@ function changeHeaderColor() {
     var logo = getCurrentLogo();
     logo.src = chrome.runtime.getURL('icon/google-cloud-brand.svg');
 
-    var headerIcons = header.querySelectorAll('svg');
-    headerIcons.forEach(function (icon) {
+    var leftHeader = getLeftHeader();
+    var leftIcons = leftHeader.querySelectorAll('svg');
+    leftIcons.forEach(function (icon) {
       icon.style.fill = 'white';
       icon.style.color = 'white';
     });
 
-    // var leftHeader = getLeftHeader();
-    // var leftIcons = leftHeader.querySelectorAll('svg');
-    // leftIcons.forEach(function (icon) {
-    //   icon.style.fill = 'white';
-    //   icon.style.color = 'white';
-    // });
-
-    // var rightHeader = getRightHeader();
-    // var rightIcons = rightHeader.querySelectorAll('svg');
-    // rightIcons.forEach(function (icon) {
-    //   icon.style.fill = 'white';
-    //   icon.style.color = 'white';
-    // });
-    // var rightCMIcons = rightHeader.querySelectorAll('cm-icon svg');
-    // rightCMIcons.forEach(function (icon) {
-    //   icon.style.fill = 'white';
-    //   icon.style.color = 'white';
-    // });
+    var rightHeader = getRightHeader();
+    var rightIcons = rightHeader.querySelectorAll('svg');
+    rightIcons.forEach(function (icon) {
+      icon.style.fill = 'white';
+      icon.style.color = 'white';
+    });
+    var rightCMIcons = rightHeader.querySelectorAll('svg');
+    rightCMIcons.forEach(function (icon) {
+      icon.style.fill = 'white';
+      icon.style.color = 'white';
+    });
 
     var searchBar = getSearchBar();
-    searchBar.style.backgroundColor = 'white';
-    searchBar.style.borderRadius = '3px';
+    searchBar.style.backgroundColor = '#ffffff';
+    searchBar.style.borderRadius = '4px';
+
+    var searchInput = searchBar.querySelector('[role="search"]');
+    searchInput.style.border = 'none';
+    searchInput.style.borderRadius = '4px';
 
     var projectSwitcher = getProjectSwitcher();
-    var projectSwitcherIcons = projectSwitcher.querySelectorAll('cm-icon svg');
+    var projectSwitcherIcons = projectSwitcher.querySelectorAll('svg');
     projectSwitcherIcons.forEach(function (icon) {
       icon.style.fill = 'white';
       icon.style.color = 'white';
