@@ -28,5 +28,11 @@
   "permissions": [
     "storage",
     "webNavigation"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icon/google-cloud-brand.svg"],
+      "matches": ["https://console.cloud.google.com/*"]
+    }
   ]
 }
