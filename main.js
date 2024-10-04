@@ -17,8 +17,24 @@ function getCurrentHeader() {
   return document.querySelector('[md-theme=platform-bar]') || document.querySelector('.cfc-platform-bar-blue') || document.querySelector('.cfc-platform-bar-white.gm2-platform-bar') || document.querySelector('.cfc-platform-bar-container');
 }
 
+function getLeftHeader() {
+  return document.querySelector('.cfc-platform-bar-left');
+}
+
+function getRightHeader() {
+  return document.querySelector('.cfc-platform-bar-right');
+}
+
 function getCurrentLogo() {
   return document.querySelector('img[alt="Console Logo"]');
+}
+
+function getSearchBar() {
+  return document.querySelector('.pcc-search-bar-container');
+}
+
+function getProjectSwitcher() {
+  return document.querySelector('button.cfc-switcher-button.cm-button.gm2-switcher-button');
 }
 
 function changeHeaderColor() {
@@ -28,6 +44,41 @@ function changeHeaderColor() {
   chrome.storage.sync.get(defaultSetting, function (setting) {
     var logo = getCurrentLogo();
     logo.src = chrome.runtime.getURL('icon/google-cloud-brand.svg');
+
+    var leftHeader = getLeftHeader();
+    var leftIcons = leftHeader.querySelectorAll('.cfc-icon svg');
+    leftIcons.forEach(function (icon) {
+      icon.style.fill = 'white';
+      icon.style.color = 'white';
+    });
+
+    var rightHeader = getRightHeader();
+    var rightIcons = rightHeader.querySelectorAll('.cfc-icon svg');
+    rightIcons.forEach(function (icon) {
+      icon.style.fill = 'white';
+      icon.style.color = 'white';
+    });
+    var rightCMIcons = rightHeader.querySelectorAll('cm-icon.ng-star-inserted svg');
+    rightCMIcons.forEach(function (icon) {
+      icon.style.fill = 'white';
+      icon.style.color = 'white';
+    });
+
+    var searchBar = getSearchBar();
+    searchBar.style.backgroundColor = 'white';
+    searchBar.style.borderRadius = '3px';
+
+    var projectSwitcher = getProjectSwitcher();
+    var projectSwitcherIcons = projectSwitcher.querySelectorAll('cm-icon svg');
+    projectSwitcherIcons.forEach(function (icon) {
+      icon.style.fill = 'white';
+      icon.style.color = 'white';
+    });
+    projectSwitcher.querySelectorAll('span.cfc-switcher-button-label').forEach(function (span) {
+      span.style.color = 'white';
+    });
+    projectSwitcher.style.border = 'none';
+
 
     var header = getCurrentHeader();
     if (!header) {
