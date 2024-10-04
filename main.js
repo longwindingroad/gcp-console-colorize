@@ -42,27 +42,36 @@ function changeHeaderColor() {
     conditions: []
   };
   chrome.storage.sync.get(defaultSetting, function (setting) {
+    var header = getCurrentHeader();
+    header.style.backgroundColor = 'rgb(66, 133, 244)';
+
     var logo = getCurrentLogo();
     logo.src = chrome.runtime.getURL('icon/google-cloud-brand.svg');
 
-    var leftHeader = getLeftHeader();
-    var leftIcons = leftHeader.querySelectorAll('.cfc-icon svg');
-    leftIcons.forEach(function (icon) {
+    var headerIcons = header.querySelectorAll('svg');
+    headerIcons.forEach(function (icon) {
       icon.style.fill = 'white';
       icon.style.color = 'white';
     });
 
-    var rightHeader = getRightHeader();
-    var rightIcons = rightHeader.querySelectorAll('.cfc-icon svg');
-    rightIcons.forEach(function (icon) {
-      icon.style.fill = 'white';
-      icon.style.color = 'white';
-    });
-    var rightCMIcons = rightHeader.querySelectorAll('cm-icon.ng-star-inserted svg');
-    rightCMIcons.forEach(function (icon) {
-      icon.style.fill = 'white';
-      icon.style.color = 'white';
-    });
+    // var leftHeader = getLeftHeader();
+    // var leftIcons = leftHeader.querySelectorAll('svg');
+    // leftIcons.forEach(function (icon) {
+    //   icon.style.fill = 'white';
+    //   icon.style.color = 'white';
+    // });
+
+    // var rightHeader = getRightHeader();
+    // var rightIcons = rightHeader.querySelectorAll('svg');
+    // rightIcons.forEach(function (icon) {
+    //   icon.style.fill = 'white';
+    //   icon.style.color = 'white';
+    // });
+    // var rightCMIcons = rightHeader.querySelectorAll('cm-icon svg');
+    // rightCMIcons.forEach(function (icon) {
+    //   icon.style.fill = 'white';
+    //   icon.style.color = 'white';
+    // });
 
     var searchBar = getSearchBar();
     searchBar.style.backgroundColor = 'white';
